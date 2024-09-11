@@ -1,82 +1,41 @@
-// Resume data model
-interface PersonalInfo {
-  name: string;
-  email: string;
-  phone: string;
-}
-
-interface Education {
-  degree: string;
-  institution: string;
-  year: string;
-}
-
-interface Skill {
-  name: string;
-}
-
-interface Experience {
-  position: string;
-  company: string;
-  period: string;
-}
-
-// Resume data
-const personalInfo: PersonalInfo = {
-  name: "Mariyam Mahnoor",
-  email: "mariyamahnoor@gamil.com",
-  phone: "+1234567890",
-};
-
-const education: Education[] = [
-  {
-    degree: "B.E in Electronics",
-    institution: "NED University",
-    year: "2015 - 2019",
-  },
-  { degree: "Researcher", institution: "NED  University", year: "2020 - 2022" },
-];
-
-const skills: Skill[] = [
-  { name: "HTML, CSS, JavaScript" },
-  { name: "TypeScript, React.js" },
-  { name: "Python, SQL" },
-];
-
-const experiences: Experience[] = [
-  {
-    position: "Software Developer",
-    company: "Tech Solutions",
-    period: "2020 - Present",
-  },
-  { position: "Intern", company: "Data Analytics Corp", period: "2019 - 2020" },
-];
-
-// Function to dynamically add skills
-function addSkills(): void {
-  const skillList = document
-    .getElementById("skills")!
-    .getElementsByTagName("ul")[0];
-  skills.forEach((skill) => {
-    const li = document.createElement("li");
-    li.textContent = skill.name;
-    skillList.appendChild(li);
-  });
-}
-
-// Function to toggle visibility of a section
-function toggleVisibility(sectionId: string): void {
-  const section = document.getElementById(sectionId);
-  if (section) {
-    const content = section.querySelectorAll("p, ul")[0] as HTMLElement; // Typecasting to HTMLElement
-    if (content) {
-      const display = content.style.display;
-      content.style.display = display === "none" ? "block" : "none";
-    }
+// Function to generate the resume
+function generateResume(event: Event): void {
+    event.preventDefault(); // Prevent form submission
+  
+    // Fetch form values
+    const name = (document.getElementById('name') as HTMLInputElement).value;
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const phone = (document.getElementById('phone') as HTMLInputElement).value;
+    const degree = (document.getElementById('degree') as HTMLInputElement).value;
+    const institution = (document.getElementById('institution') as HTMLInputElement).value;
+    const year = (document.getElementById('year') as HTMLInputElement).value;
+    const position = (document.getElementById('position') as HTMLInputElement).value;
+    const company = (document.getElementById('company') as HTMLInputElement).value;
+    const workYears = (document.getElementById('work-years') as HTMLInputElement).value;
+    const skills = (document.getElementById('skills') as HTMLInputElement).value.split(',');
+  
+    // Populate the resume section
+    const resumeContent = document.getElementById('resume-content') as HTMLElement;
+    resumeContent.innerHTML = `
+      <h3>${name}</h3>
+      <p>Email: ${email}</p>
+      <p>Phone: ${phone}</p>
+      <h4>Education</h4>
+      <p>${degree}, ${institution} (${year})</p>
+      <h4>Work Experience</h4>
+      <p>${position}, ${company} (${workYears})</p>
+      <h4>Skills</h4>
+      <ul>
+        ${skills.map(skill => `<li>${skill.trim()}</li>`).join('')}
+      </ul>
+    `;
+  
+    // Show the resume section
+    const resumeSection = document.getElementById('resume-section') as HTMLElement;
+    resumeSection.classList.remove('hidden');
   }
-}
-
-// Add event listeners and initial setup
-window.onload = () => {
-  addSkills();
-};
+  
+  // Add event listener to the form
+  const form = document.getElementById('resume-form') as HTMLFormElement;
+  form.addEventListener('submit', generateResume);
+  
