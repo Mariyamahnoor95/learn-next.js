@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Resume</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Mariyam Mahnoor</h1>
+      <p>Email: mariyamahnoor@example.com | Phone: +1234567890</p>
+    </header>
+
+    <section id="personal-info">
+      <h2>
+        Personal Info
+        <button onclick="toggleVisibility('personal-info')">Toggle</button>
+      </h2>
+      <div>
+        <p>Address: 123 Main Street, karachi , Pakistan</p>
+       
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>
+        Education
+        <button onclick="toggleVisibility('education')">Toggle</button>
+      </h2>
+      <ul>
+        <li>B.E in Electronics, NED University (2015 - 2019)</li>
+        <li>Resercher , NED University (2020 - 2022)</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>
+        Skills <button onclick="toggleVisibility('skills')">Toggle</button>
+      </h2>
+      <ul></ul>
+    </section>
+
+    <section id="work-experience">
+      <h2>
+        Work Experience
+        <button onclick="toggleVisibility('work-experience')">Toggle</button>
+      </h2>
+      <ul>
+        <li>Software Developer, NCL (2020 - Present)</li>
+        <li>Intern, civil avaition (2019 - 2020)</li>
+      </ul>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
