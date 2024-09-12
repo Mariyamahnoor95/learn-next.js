@@ -74,3 +74,26 @@ body {
     line-height: 1.6;
   }
   
+
+#resume-section input,
+#resume-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+#resume-section textarea {
+  resize: vertical;
+}
+
+/* Subtle hover effect on editable fields */
+#resume-section input:hover,
+#resume-section textarea:hover {
+  background-color: #f0f4f8;
+}

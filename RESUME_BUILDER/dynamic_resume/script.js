@@ -3,7 +3,7 @@ function addEducationFields() {
     var educationSection = document.getElementById('education-section');
     var newEntry = document.createElement('div');
     newEntry.classList.add('education-entry');
-    newEntry.innerHTML = "\n      <label for=\"degree\">Degree</label>\n      <input type=\"text\" class=\"degree\" required>\n  \n      <label for=\"institution\">Institution</label>\n      <input type=\"text\" class=\"institution\" required>\n  \n      <label for=\"year\">Year</label>\n      <input type=\"text\" class=\"year\" required>\n    ";
+    newEntry.innerHTML = "\n    <label for=\"degree\">Degree</label>\n    <input type=\"text\" class=\"degree\" required>\n\n    <label for=\"institution\">Institution</label>\n    <input type=\"text\" class=\"institution\" required>\n\n    <label for=\"year\">Year</label>\n    <input type=\"text\" class=\"year\" required>\n  ";
     educationSection.appendChild(newEntry);
 }
 // Function to dynamically add work experience fields
@@ -11,7 +11,7 @@ function addWorkFields() {
     var workSection = document.getElementById('work-section');
     var newEntry = document.createElement('div');
     newEntry.classList.add('work-entry');
-    newEntry.innerHTML = "\n      <label for=\"position\">Position</label>\n      <input type=\"text\" class=\"position\" required>\n  \n      <label for=\"company\">Company</label>\n      <input type=\"text\" class=\"company\" required>\n  \n      <label for=\"work-years\">Years</label>\n      <input type=\"text\" class=\"work-years\" required>\n    ";
+    newEntry.innerHTML = "\n    <label for=\"position\">Position</label>\n    <input type=\"text\" class=\"position\" required>\n\n    <label for=\"company\">Company</label>\n    <input type=\"text\" class=\"company\" required>\n\n    <label for=\"work-years\">Years</label>\n    <input type=\"text\" class=\"work-years\" required>\n  ";
     workSection.appendChild(newEntry);
 }
 // Function to dynamically add skill fields
@@ -57,7 +57,7 @@ function generateResume(event) {
     skillsHTML += '</ul>';
     // Populate the resume section
     var resumeContent = document.getElementById('resume-content');
-    resumeContent.innerHTML = "\n      <h3>".concat(name, "</h3>\n      <p>Email: <a href=\"mailto:").concat(email, "\">").concat(email, "</a></p>\n      <p>Phone: ").concat(phone, "</p>\n      \n      <h4>Education</h4>\n      ").concat(educationHTML, "\n  \n      <h4>Work Experience</h4>\n      ").concat(workHTML, "\n  \n      <h4>Skills</h4>\n      ").concat(skillsHTML, "\n    ");
+    resumeContent.innerHTML = "\n    <h3>".concat(name, "</h3>\n    <p>Email: <a href=\"mailto:").concat(email, "\">").concat(email, "</a></p>\n    <p>Phone: ").concat(phone, "</p>\n    \n    <h4>Education</h4>\n    ").concat(educationHTML, "\n\n    <h4>Work Experience</h4>\n    ").concat(workHTML, "\n\n    <h4>Skills</h4>\n    ").concat(skillsHTML, "\n  ");
     // Show the resume section
     var resumeSection = document.getElementById('resume-section');
     resumeSection.classList.remove('hidden');
